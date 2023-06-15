@@ -34,5 +34,53 @@ namespace Biblioteca
                 return objeto;
             }
         }
+
+        public static Jugador? DeserializarJugadorUnoJson()
+        {
+            if (!File.Exists("JugadorUno.json"))
+            {
+                return null;
+            }
+            using (StreamReader sr = new StreamReader("JugadorUno.json"))
+            {
+                string stringJson = sr.ReadToEnd();
+
+                Jugador? objeto = (Jugador?)JsonSerializer.Deserialize<Jugador>(stringJson);
+
+                return objeto;
+            }
+        }
+
+        public static Jugador? DeserializarJugadorDosJson()
+        {
+            if (!File.Exists("JugadorDos.json"))
+            {
+                return null;
+            }
+            using (StreamReader sr = new StreamReader("JugadorDos.json"))
+            {
+                string stringJson = sr.ReadToEnd();
+
+                Jugador? objeto = (Jugador?)JsonSerializer.Deserialize<Jugador>(stringJson);
+
+                return objeto;
+            }
+        }
+
+        public static List<Jugador>? DeserializarJugadoresJson()
+        {
+            if (!File.Exists("Jugadores.json"))
+            {
+                return null;
+            }
+            using (StreamReader sr = new StreamReader("Jugadores.json"))
+            {
+                string stringJson = sr.ReadToEnd();
+
+                List<Jugador>? objeto = (List<Jugador>?)JsonSerializer.Deserialize<List<Jugador>>(stringJson);
+
+                return objeto;
+            }
+        }
     }
 }

@@ -8,24 +8,15 @@ namespace Biblioteca
 {
     public class Juego
     {
-        Jugador Jugador;
-        private int[] dados;
+        private Jugador Jugador;
 
-        public Juego(int[] dados)
+        public Juego(Jugador jugador)
         {
-            this.dados = new int[5];
+            Jugador = jugador;
         }
 
-        public int[] Dados { get => dados; set => dados = value; }
+        internal Jugador Jugador1 { get => Jugador; set => Jugador = value; }
 
-        public void TirarDados()
-        {
-            Random random = new Random();
-            for(int i = 0; i > dados.Length; i++)
-            {
-                dados[i] = random.Next(1,7);
-            }
-        }
 
         public void EsEscalera()
         {

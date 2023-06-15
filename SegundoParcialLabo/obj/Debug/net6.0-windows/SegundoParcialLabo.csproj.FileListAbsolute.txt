@@ -27,3 +27,4 @@ C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo
 C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo\obj\Debug\net6.0-windows\SegundoParcialLabo.csproj.CopyComplete
 C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo\obj\Debug\net6.0-windows\SegundoParcialLabo.FrmRegistro.resources
 C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo\obj\Debug\net6.0-windows\SegundoParcialLabo.FrmPrincipal.resources
+C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo\obj\Debug\net6.0-windows\SegundoParcialLabo.FrmJuego.resources

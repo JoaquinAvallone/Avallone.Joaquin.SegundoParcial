@@ -14,6 +14,7 @@ namespace SegundoParcialLabo
     public partial class FrmLogIn : Form
     {
         List<Usuario>? usuarios;
+        List<Jugador> jugadores;
         public FrmLogIn()
         {
             InitializeComponent();
@@ -21,8 +22,14 @@ namespace SegundoParcialLabo
 
         private void FrmLogIn_Load(object sender, EventArgs e)
         {
-            usuarios = new List<Usuario>();
             usuarios = UsuarioDAO.ListaUsuarios();
+            jugadores = new List<Jugador>();
+
+            if (!File.Exists("Jugadores.json"))
+            {
+                jugadores = Hardcode.HardcodeJugadores();
+                Serializador.SerializarJson("Jugadores.json", jugadores);
+            }
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)

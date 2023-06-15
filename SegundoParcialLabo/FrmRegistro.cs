@@ -14,6 +14,7 @@ namespace SegundoParcialLabo
     public partial class FrmRegistro : Form
     {
         List<Usuario>? usuarios;
+        List<Jugador>? jugadores;
         public FrmRegistro()
         {
             InitializeComponent();
@@ -21,8 +22,8 @@ namespace SegundoParcialLabo
 
         private void FrmRegistro_Load(object sender, EventArgs e)
         {
-            usuarios = new List<Usuario>();
             usuarios = UsuarioDAO.ListaUsuarios();
+            jugadores = Serializador.DeserializarJugadoresJson();
         }
 
         private void btnRegistro_Click(object sender, EventArgs e)
@@ -44,6 +45,14 @@ namespace SegundoParcialLabo
             foreach (Usuario item in usuarios)
             {
                 if (nombreUsuario == item.NombreUsuario)
+                {
+                    MessageBox.Show("El nombre de usuario ya existe, ingrese otro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            foreach (Jugador item in jugadores)
+            {
+                if (nombreUsuario == item.Nombre)
                 {
                     MessageBox.Show("El nombre de usuario ya existe, ingrese otro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

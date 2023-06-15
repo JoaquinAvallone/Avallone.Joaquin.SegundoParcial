@@ -1,0 +1,100 @@
+[
+  {
+    "Id": 0,
+    "Nombre": "Robert",
+    "Dados": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "PartidasGanadas": 0,
+    "PartidasPerdidas": 0,
+    "Score": 0
+  },
+  {
+    "Id": 0,
+    "Nombre": "MaestroDeDados",
+    "Dados": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "PartidasGanadas": 0,
+    "PartidasPerdidas": 0,
+    "Score": 0
+  },
+  {
+    "Id": 0,
+    "Nombre": "ElGeneCrack",
+    "Dados": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "PartidasGanadas": 0,
+    "PartidasPerdidas": 0,
+    "Score": 0
+  },
+  {
+    "Id": 0,
+    "Nombre": "FullMaster",
+    "Dados": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "PartidasGanadas": 0,
+    "PartidasPerdidas": 0,
+    "Score": 0
+  },
+  {
+    "Id": 0,
+    "Nombre": "EscaleraServida",
+    "Dados": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "PartidasGanadas": 0,
+    "PartidasPerdidas": 0,
+    "Score": 0
+  },
+  {
+    "Id": 0,
+    "Nombre": "TiraDados",
+    "Dados": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "PartidasGanadas": 0,
+    "PartidasPerdidas": 0,
+    "Score": 0
+  },
+  {
+    "Id": 0,
+    "Nombre": "Pepe",
+    "Dados": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "PartidasGanadas": 0,
+    "PartidasPerdidas": 0,
+    "Score": 0
+  }
+]

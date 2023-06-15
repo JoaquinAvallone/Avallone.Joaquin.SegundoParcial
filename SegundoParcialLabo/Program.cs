@@ -1,3 +1,5 @@
+using Biblioteca;
+
 namespace SegundoParcialLabo
 {
     internal static class Program
