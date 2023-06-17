@@ -47,6 +47,9 @@ namespace SegundoParcialLabo
             }
             Serializador.SerializarJson("JugadorUno.json", jugadorUno);
             Serializador.SerializarJson("JugadorDos.json", jugadorDos);
+
+            FrmJuegoPc frmJuegoPc = new FrmJuegoPc();
+            frmJuegoPc.Show();
         }
     }
 }

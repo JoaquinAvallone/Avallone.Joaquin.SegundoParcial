@@ -107,5 +107,59 @@ namespace Biblioteca
                 juego.ganador = juego.jugadorDos.Nombre;
             }
         }
+
+        public static int[] ObtenerNumeroMasRepetido(int[] numeros, int[] excluidos)
+        {
+            Dictionary<int, int> recuento = new Dictionary<int, int>();
+
+            foreach (int num in numeros)
+            {
+                if (Array.IndexOf(excluidos, num) == -1)
+                {
+                    if (recuento.ContainsKey(num))
+                    {
+                        recuento[num]++;
+                    }
+                    else
+                    {
+                        recuento[num] = 1;
+                    }
+                }
+            }
+
+            int maxRepeticiones = 0;
+            int numeroMasRepetido = int.MaxValue;
+
+            foreach (KeyValuePair<int, int> item in recuento)
+            {
+                int numero = item.Key;
+                int repeticiones = item.Value;
+
+                if (repeticiones > maxRepeticiones)
+                {
+                    maxRepeticiones = repeticiones;
+                    numeroMasRepetido = numero;
+                }
+                else if (repeticiones == maxRepeticiones && numero < numeroMasRepetido)
+                {
+                    numeroMasRepetido = numero;
+                }
+            }
+            int[] retorno = new int[] {numeroMasRepetido, maxRepeticiones};
+
+            return retorno;
+        }
+
+        public static void AgregarExcluido(int[] excluidos, int num)
+        {
+            for(int i = 0; i < excluidos.Length; i++)
+            {
+                if (excluidos[i] == 0)
+                {
+                    excluidos[i] = num;
+                    break;
+                }
+            }
+        }
     }
 }

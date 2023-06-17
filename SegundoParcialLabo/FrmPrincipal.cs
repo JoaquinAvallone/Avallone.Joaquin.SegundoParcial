@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace SegundoParcialLabo
 {
+    public delegate void DelegadoPanel(Form formulario);
     public partial class FrmPrincipal : Form
     {
 
@@ -33,8 +34,8 @@ namespace SegundoParcialLabo
 
         private void btnPc_Click(object sender, EventArgs e)
         {
-            CerrarFormularioAbierto();
-            AbrirFormulario<FrmPcVsPc>();
+            Task hilo = new Task(() => { CerrarFormularioAbierto(); AbrirFormulario<FrmPcVsPc>();});
+            hilo.Start();            
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)
@@ -66,10 +67,11 @@ namespace SegundoParcialLabo
                 formulario.TopLevel = false;
                 formulario.FormBorderStyle = FormBorderStyle.None;
                 formulario.Dock = DockStyle.Fill;
-                panelFormularios.Controls.Add(formulario);
+                AbrirFormPanel(formulario);
+                //panelFormularios.Controls.Add(formulario);
                 panelFormularios.Tag = formulario;
-                formulario.Show();
-                formulario.BringToFront();
+                //formulario.Show();
+                //formulario.BringToFront();
 
                 formularioAbierto = formulario;
             }
@@ -77,6 +79,23 @@ namespace SegundoParcialLabo
             {
                 formulario.BringToFront();
                 formularioAbierto = formulario;
+            }
+        }
+
+
+        private void AbrirFormPanel(Form formulario)
+        {
+            if(InvokeRequired)
+            {
+                DelegadoPanel delegado = AbrirFormPanel;
+                object[] parametros = { formulario };
+                Invoke(delegado, parametros);
+            }
+            else
+            {
+                panelFormularios.Controls.Add(formulario);
+                formulario.Show();
+                formulario.BringToFront();
             }
         }
 
