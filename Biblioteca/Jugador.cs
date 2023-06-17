@@ -27,17 +27,7 @@ namespace Biblioteca
         public int PartidasGanadas { get => partidasGanadas; set => partidasGanadas = value; }
         public int PartidasPerdidas { get => partidasPerdidas; set => partidasPerdidas = value; }
 
-        public int[] TirarDados()
-        {
-            Random random = new Random();
-            for (int i = 0; i > 5; i++)
-            {
-                dados[i] = random.Next(1, 7);
-            }
-            return dados;
-        }
-
-   
+        
 
 
     }

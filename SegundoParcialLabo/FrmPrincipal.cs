@@ -13,8 +13,8 @@ namespace SegundoParcialLabo
 {
     public partial class FrmPrincipal : Form
     {
-        Usuario? usuarioActual;
-        List<Jugador>? jugadores;
+
+        Form? formularioAbierto = null;
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -22,55 +22,24 @@ namespace SegundoParcialLabo
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            usuarioActual = Serializador.DeserializarUsuarioActualJson();
-            jugadores = Serializador.DeserializarJugadoresJson();
-            panelPrincipal.Visible = false;
-            RellenarComboB();
-        }
 
-        public void RellenarComboB()
-        {
-            foreach(Jugador item in jugadores)
-            {
-                comboBDos.Items.Add(item.Nombre);
-            }
-            comboBUno.Items.Add(usuarioActual.NombreUsuario);
         }
 
         private void btnPVP_Click(object sender, EventArgs e)
         {
-            panelPrincipal.Visible = true;
+            CerrarFormularioAbierto();
+            AbrirFormulario<FrmPlayerVsPlayer>();
         }
 
         private void btnPc_Click(object sender, EventArgs e)
         {
-            panelPrincipal.Visible = true;
+            CerrarFormularioAbierto();
+            AbrirFormulario<FrmPcVsPc>();
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnJugar_Click(object sender, EventArgs e)
-        {
-            Jugador jugadorUno = new Jugador(usuarioActual.NombreUsuario);
-            Jugador jugadorDos = new Jugador(comboBDos.Text);
-            if (comboBUno.Text == "" || comboBDos.Text == "")
-            {
-                MessageBox.Show("Debe elegir ambos jugadores.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            Serializador.SerializarJson("JugadorUno.json", jugadorUno);
-            Serializador.SerializarJson("JugadorDos.json", jugadorDos);
-            FrmJuego frmJuego = new FrmJuego();
-
-            frmJuego.ShowDialog();         
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            panelPrincipal.Visible = false;
+            CerrarFormularioAbierto();
         }
 
         private void pictureBEscape_Click(object sender, EventArgs e)
@@ -85,6 +54,39 @@ namespace SegundoParcialLabo
         private void pictureBMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void AbrirFormulario<MiForm>() where MiForm : Form, new()
+        {
+            Form? formulario;
+            formulario = panelFormularios.Controls.OfType<MiForm>().FirstOrDefault(); // busca en la coleccion el formulario
+            if (formulario == null)
+            {
+                formulario = new MiForm();
+                formulario.TopLevel = false;
+                formulario.FormBorderStyle = FormBorderStyle.None;
+                formulario.Dock = DockStyle.Fill;
+                panelFormularios.Controls.Add(formulario);
+                panelFormularios.Tag = formulario;
+                formulario.Show();
+                formulario.BringToFront();
+
+                formularioAbierto = formulario;
+            }
+            else
+            {
+                formulario.BringToFront();
+                formularioAbierto = formulario;
+            }
+        }
+
+        private void CerrarFormularioAbierto()
+        {
+            if (formularioAbierto != null)
+            {
+                formularioAbierto.Close();
+                formularioAbierto = null;
+            }
         }
     }
 }
