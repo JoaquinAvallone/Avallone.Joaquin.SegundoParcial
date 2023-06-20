@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace SegundoParcialLabo
 {
@@ -16,6 +17,8 @@ namespace SegundoParcialLabo
         Jugador? jugadorUno;
         Jugador? jugadorDos;
         Juego partida;
+        bool terminoLaPartida = false;
+        bool checkPartida = true;
         public FrmJuego()
         {
             InitializeComponent();
@@ -32,8 +35,17 @@ namespace SegundoParcialLabo
             picBP1.BackColor = Color.LightCoral;
             lblPlayer1.Text = jugadorUno.Nombre;
             lblPlayer2.Text = jugadorDos.Nombre;
+
+            Task.Run(() => { CheckFinPartida(); });
         }
 
+        public void CheckFinPartida()
+        {
+            while (checkPartida)
+            {
+                Ganador();
+            }
+        }
         public void CargarImagenes()
         {
             picBDado1P1.ImageLocation = "dados/Dado1.png";
@@ -388,7 +400,6 @@ namespace SegundoParcialLabo
         public void CalcularScoreP1()
         {
             int score = 0;
-            List<int> list = new List<int>();
 
             string[] valoresLabel = new string[]
             {
@@ -408,23 +419,18 @@ namespace SegundoParcialLabo
             {
                 if (int.TryParse(item, out int valor))
                 {
-                    list.Add(valor);
                     score += valor;
-                }
-                else
-                {
-                    list.Add(-1);
                 }
             }
 
             lblPuntosP1.Text = score.ToString();
+            partida.PuntosJugadorUno = score;
 
         }
 
         public void CalcularScoreP2()
         {
             int score = 0;
-            List<int> list = new List<int>();
 
             string[] valoresLabel = new string[]
             {
@@ -444,16 +450,12 @@ namespace SegundoParcialLabo
             {
                 if (int.TryParse(item, out int valor))
                 {
-                    list.Add(valor);
                     score += valor;
-                }
-                else
-                {
-                    list.Add(-1);
                 }
             }
 
             lblPuntosP2.Text = score.ToString();
+            partida.PuntosJugadorDos = score;
         }
 
 
@@ -831,6 +833,96 @@ namespace SegundoParcialLabo
             {
                 RestablacerColorPanelJuga2();
                 panelGeneralaP2.BackColor = Color.FromArgb(10, 64, 30);
+            }
+        }
+
+        public void Ganador()
+        {
+            int contador = 0;
+            int contadorLblPuntos = 0;
+
+            string[] valoresLabel = new string[]
+            {
+                lblDado1P2.Text,
+                lblDado2P2.Text,
+                lblDado3P2.Text,
+                lblDado4P2.Text,
+                lblDado5P2.Text,
+                lblDado6P2.Text,
+                lblEscaleraP2.Text,
+                lblFullP2.Text,
+                lblPokerP2.Text,
+                lblGeneralaP2.Text
+            };
+
+            foreach (string item in valoresLabel)
+            {
+                if (int.TryParse(item, out int valor))
+                {
+                    contadorLblPuntos ++;
+                }
+            }
+            Panel[] panelesJuga2 = new Panel[]
+            {
+                panel1P2,
+                panel2P2,
+                panel3P2,
+                panel4P2,
+                panel5P2,
+                panel6P2,
+                panelEscaleraP2,
+                panelFullP2,
+                panelPokerP2,
+                panelGeneralaP2
+            };
+
+            foreach (Panel item in panelesJuga2)
+            {
+                if (item.BackColor == Color.FromArgb(10, 64, 30))
+                {
+                    contador++;
+                }
+            }
+
+            if(contador == 10 && contadorLblPuntos == 10)
+            {
+                checkPartida = false;
+                terminoLaPartida = true;
+                if (partida.PuntosJugadorUno > partida.PuntosJugadorDos)
+                {
+                    partida.Ganador = jugadorUno.Nombre;
+                    partida.Perdedor = jugadorDos.Nombre;
+                    jugadorUno.PartidasGanadas++;
+                }
+                else if (partida.PuntosJugadorUno < partida.PuntosJugadorDos)
+                {
+                    partida.Ganador = jugadorDos.Nombre;
+                    partida.Perdedor = jugadorUno.Nombre;
+                    jugadorUno.PartidasPerdidas++;
+                }
+                else
+                {
+                    partida.Ganador = "Empate";
+                    partida.Perdedor = "Empate";
+                }
+                Juego partidaDB = new Juego(jugadorUno.Nombre, jugadorDos.Nombre, partida.PuntosJugadorUno, partida.PuntosJugadorDos, partida.Ganador, partida.Perdedor, jugadorUno.PartidasGanadas, jugadorUno.PartidasPerdidas);
+                PartidaDAO.GuardarPartida(partidaDB);
+                FrmGanador frmGanador = new FrmGanador(partida);
+                frmGanador.ShowDialog();
+            }
+
+        }
+
+        private void FrmJuego_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(!terminoLaPartida)
+            {
+                DialogResult result = MessageBox.Show("¿Está seguro de abandonar el juego? Se cancelara la partida.", "Confirmar cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }

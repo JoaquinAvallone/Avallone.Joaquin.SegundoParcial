@@ -22,19 +22,19 @@ namespace SegundoParcialLabo
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
- 
+
         }
 
         private void btnPVP_Click(object sender, EventArgs e)
         {
-            Task hilo = new Task(() => { CerrarForm(formularioAbierto); AbrirFormulario<FrmPlayerVsPlayer>();});
+            Task hilo = new Task(() => { CerrarForm(formularioAbierto); AbrirFormulario<FrmPlayerVsPlayer>(); });
             hilo.Start();
         }
 
         private void btnPc_Click(object sender, EventArgs e)
         {
-            Task hilo = new Task(() => { CerrarForm(formularioAbierto); AbrirFormulario<FrmPcVsPc>();});
-            hilo.Start();            
+            Task hilo = new Task(() => { CerrarForm(formularioAbierto); AbrirFormulario<FrmPcVsPc>(); });
+            hilo.Start();
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)
@@ -76,12 +76,12 @@ namespace SegundoParcialLabo
                 formulario.BringToFront();
                 formularioAbierto = formulario;
             }
-            
+
         }
 
         private void AbrirFormPanel(Form formulario)
         {
-            if(InvokeRequired)
+            if (InvokeRequired)
             {
                 DelegadoPanel delegado = AbrirFormPanel;
                 object[] parametros = { formulario };
@@ -97,7 +97,7 @@ namespace SegundoParcialLabo
 
         private void CerrarForm(Form formulario)
         {
-            if(InvokeRequired)
+            if (InvokeRequired)
             {
                 DelegadoPanel delegado = CerrarForm;
                 object[] parametros = { formulario };

@@ -41,7 +41,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Sylfaen", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.WhiteSmoke;
-            label1.Location = new Point(164, 44);
+            label1.Location = new Point(223, 42);
             label1.Name = "label1";
             label1.Size = new Size(115, 31);
             label1.TabIndex = 12;
@@ -53,7 +53,7 @@
             btnJugar.FlatStyle = FlatStyle.Popup;
             btnJugar.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnJugar.ForeColor = Color.WhiteSmoke;
-            btnJugar.Location = new Point(153, 205);
+            btnJugar.Location = new Point(212, 203);
             btnJugar.Name = "btnJugar";
             btnJugar.Size = new Size(136, 39);
             btnJugar.TabIndex = 16;
@@ -64,7 +64,7 @@
             // comboBUno
             // 
             comboBUno.FormattingEnabled = true;
-            comboBUno.Location = new Point(36, 143);
+            comboBUno.Location = new Point(95, 141);
             comboBUno.Name = "comboBUno";
             comboBUno.Size = new Size(142, 23);
             comboBUno.TabIndex = 17;
@@ -74,7 +74,7 @@
             lblJugador1.AutoSize = true;
             lblJugador1.Font = new Font("Sylfaen", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblJugador1.ForeColor = Color.WhiteSmoke;
-            lblJugador1.Location = new Point(52, 108);
+            lblJugador1.Location = new Point(111, 106);
             lblJugador1.Name = "lblJugador1";
             lblJugador1.Size = new Size(103, 22);
             lblJugador1.TabIndex = 13;
@@ -85,7 +85,7 @@
             lblJugador2.AutoSize = true;
             lblJugador2.Font = new Font("Sylfaen", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblJugador2.ForeColor = Color.WhiteSmoke;
-            lblJugador2.Location = new Point(288, 108);
+            lblJugador2.Location = new Point(347, 106);
             lblJugador2.Name = "lblJugador2";
             lblJugador2.Size = new Size(101, 22);
             lblJugador2.TabIndex = 14;
@@ -94,7 +94,7 @@
             // comboBDos
             // 
             comboBDos.FormattingEnabled = true;
-            comboBDos.Location = new Point(266, 143);
+            comboBDos.Location = new Point(325, 141);
             comboBDos.Name = "comboBDos";
             comboBDos.Size = new Size(142, 23);
             comboBDos.TabIndex = 15;
@@ -104,7 +104,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(14, 89, 41);
-            ClientSize = new Size(444, 290);
+            ClientSize = new Size(567, 290);
             Controls.Add(btnJugar);
             Controls.Add(comboBUno);
             Controls.Add(lblJugador1);

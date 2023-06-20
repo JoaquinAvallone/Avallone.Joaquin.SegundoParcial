@@ -52,7 +52,7 @@
             lblGenerala.AutoSize = true;
             lblGenerala.Font = new Font("Sylfaen", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblGenerala.ForeColor = Color.WhiteSmoke;
-            lblGenerala.Location = new Point(108, 9);
+            lblGenerala.Location = new Point(178, 9);
             lblGenerala.Name = "lblGenerala";
             lblGenerala.Size = new Size(207, 46);
             lblGenerala.TabIndex = 0;
@@ -107,7 +107,7 @@
             // 
             pictureBMinimize.Cursor = Cursors.Hand;
             pictureBMinimize.Image = (Image)resources.GetObject("pictureBMinimize.Image");
-            pictureBMinimize.Location = new Point(393, 10);
+            pictureBMinimize.Location = new Point(515, 9);
             pictureBMinimize.Name = "pictureBMinimize";
             pictureBMinimize.Size = new Size(17, 17);
             pictureBMinimize.SizeMode = PictureBoxSizeMode.Zoom;
@@ -119,7 +119,7 @@
             // 
             pictureBEscape.Cursor = Cursors.Hand;
             pictureBEscape.Image = (Image)resources.GetObject("pictureBEscape.Image");
-            pictureBEscape.Location = new Point(416, 10);
+            pictureBEscape.Location = new Point(538, 9);
             pictureBEscape.Name = "pictureBEscape";
             pictureBEscape.Size = new Size(17, 17);
             pictureBEscape.SizeMode = PictureBoxSizeMode.Zoom;
@@ -148,7 +148,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(100, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(444, 60);
+            panel2.Size = new Size(567, 60);
             panel2.TabIndex = 20;
             // 
             // panelFormularios
@@ -157,13 +157,13 @@
             panelFormularios.Dock = DockStyle.Fill;
             panelFormularios.Location = new Point(100, 60);
             panelFormularios.Name = "panelFormularios";
-            panelFormularios.Size = new Size(444, 290);
+            panelFormularios.Size = new Size(567, 290);
             panelFormularios.TabIndex = 21;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(146, 88);
+            pictureBox1.Location = new Point(209, 73);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(130, 107);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -175,7 +175,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(14, 89, 41);
-            ClientSize = new Size(544, 350);
+            ClientSize = new Size(667, 350);
             Controls.Add(panelFormularios);
             Controls.Add(panel2);
             Controls.Add(panel1);

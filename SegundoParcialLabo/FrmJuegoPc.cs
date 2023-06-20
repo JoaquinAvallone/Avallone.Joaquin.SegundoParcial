@@ -21,6 +21,7 @@ namespace SegundoParcialLabo
         int[,]? tiradasJuga2;
         private CancellationTokenSource cancellationTokenSource;
         private CancellationToken cancellationToken;
+        bool terminoLaPartida = false;
         public FrmJuegoPc()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace SegundoParcialLabo
 
         public void CargarImagenes()
         {
+            this.Text = jugadorUno.Nombre + " vs " + jugadorDos.Nombre;
             picBDado1P1.ImageLocation = "dados/Dado1.png";
             picBDado2P1.ImageLocation = "dados/dado2.png";
             picBDado3P1.ImageLocation = "dados/dado3.png";
@@ -80,7 +82,7 @@ namespace SegundoParcialLabo
 
         public async void RellenarTiradas()
         {
-           
+
             TirarDados(tiradasJuga1);
             TirarDados(tiradasJuga2);
             listBJuga1.Items.Clear();
@@ -387,14 +389,20 @@ namespace SegundoParcialLabo
                 partida.Perdedor = jugadorDos.Nombre;
                 jugadorUno.PartidasGanadas++;
             }
-            else
+            else if(partida.PuntosJugadorUno < partida.PuntosJugadorDos)
             {
                 partida.Ganador = jugadorDos.Nombre;
                 partida.Perdedor = jugadorUno.Nombre;
                 jugadorUno.PartidasPerdidas++;
             }
+            else
+            {
+                partida.Ganador = "Empate";
+                partida.Perdedor = "Empate";
+            }
+            terminoLaPartida = true;
             Juego partidaDB = new Juego(jugadorUno.Nombre, jugadorDos.Nombre, partida.PuntosJugadorUno, partida.PuntosJugadorDos, partida.Ganador, partida.Perdedor, jugadorUno.PartidasGanadas, jugadorUno.PartidasPerdidas);
-            PartidaDAO.GuardarPartida( partidaDB );
+            PartidaDAO.GuardarPartida(partidaDB);
         }
 
         public void Ganador()
@@ -406,6 +414,26 @@ namespace SegundoParcialLabo
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             cancellationTokenSource.Cancel();
+            MessageBox.Show("Partida Cancelada", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private void FrmJuegoPc_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(!terminoLaPartida)
+            {
+                DialogResult result = MessageBox.Show("¿Está seguro de abandonar el juego? Se cancelara la partida.", "Confirmar cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    cancellationTokenSource.Cancel();
+                }
+
+            }
         }
     }
 }

@@ -1058,6 +1058,7 @@
             Name = "FrmJuego";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "La Generala";
+            FormClosing += FrmJuego_FormClosing;
             Load += FrmJuego_Load;
             ((System.ComponentModel.ISupportInitialize)picBDado1P1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBDado6P1).EndInit();

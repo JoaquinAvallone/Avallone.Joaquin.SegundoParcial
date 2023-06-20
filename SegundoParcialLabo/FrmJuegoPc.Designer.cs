@@ -937,6 +937,7 @@
             Name = "FrmJuegoPc";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmJuegoPc";
+            FormClosing += FrmJuegoPc_FormClosing;
             Load += FrmJuegoPc_Load;
             panelGeneralaP1.ResumeLayout(false);
             panelGeneralaP1.PerformLayout();

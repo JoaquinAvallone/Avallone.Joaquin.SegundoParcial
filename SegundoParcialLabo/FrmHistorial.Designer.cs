@@ -86,7 +86,7 @@
             dataGVPartidas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGVPartidas.RowTemplate.Height = 25;
             dataGVPartidas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGVPartidas.Size = new Size(444, 258);
+            dataGVPartidas.Size = new Size(567, 258);
             dataGVPartidas.TabIndex = 0;
             // 
             // ID
@@ -152,7 +152,7 @@
             lblGandas.AutoSize = true;
             lblGandas.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblGandas.ForeColor = Color.WhiteSmoke;
-            lblGandas.Location = new Point(12, 263);
+            lblGandas.Location = new Point(31, 263);
             lblGandas.Name = "lblGandas";
             lblGandas.Size = new Size(140, 18);
             lblGandas.TabIndex = 1;
@@ -163,7 +163,7 @@
             lblPerdidas.AutoSize = true;
             lblPerdidas.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblPerdidas.ForeColor = Color.WhiteSmoke;
-            lblPerdidas.Location = new Point(240, 263);
+            lblPerdidas.Location = new Point(328, 263);
             lblPerdidas.Name = "lblPerdidas";
             lblPerdidas.Size = new Size(141, 18);
             lblPerdidas.TabIndex = 2;
@@ -174,7 +174,7 @@
             lblAviso.AutoSize = true;
             lblAviso.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblAviso.ForeColor = Color.WhiteSmoke;
-            lblAviso.Location = new Point(122, 119);
+            lblAviso.Location = new Point(178, 120);
             lblAviso.Name = "lblAviso";
             lblAviso.Size = new Size(193, 18);
             lblAviso.TabIndex = 3;
@@ -185,7 +185,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(14, 89, 41);
-            ClientSize = new Size(444, 290);
+            ClientSize = new Size(567, 290);
             Controls.Add(lblAviso);
             Controls.Add(lblPerdidas);
             Controls.Add(lblGandas);
