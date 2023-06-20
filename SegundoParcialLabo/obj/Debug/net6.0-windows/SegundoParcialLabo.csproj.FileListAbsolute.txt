@@ -31,3 +31,5 @@ C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo
 C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo\obj\Debug\net6.0-windows\SegundoParcialLabo.FrmPcVsPc.resources
 C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo\obj\Debug\net6.0-windows\SegundoParcialLabo.FrmPlayerVsPlayer.resources
 C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo\obj\Debug\net6.0-windows\SegundoParcialLabo.FrmJuegoPc.resources
+C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo\obj\Debug\net6.0-windows\SegundoParcialLabo.FrmGanador.resources
+C:\Users\Usuario\source\repos\Avallone.Joaquin.SegundoParcial\SegundoParcialLabo\obj\Debug\net6.0-windows\SegundoParcialLabo.FrmHistorial.resources

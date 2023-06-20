@@ -833,6 +833,5 @@ namespace SegundoParcialLabo
                 panelGeneralaP2.BackColor = Color.FromArgb(10, 64, 30);
             }
         }
-
     }
 }

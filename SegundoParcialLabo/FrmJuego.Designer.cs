@@ -101,7 +101,6 @@
             lblPuntosP1 = new Label();
             lblPuntosP2 = new Label();
             btnTirar = new Button();
-            btnSelec = new Button();
             btnPasarTurno = new Button();
             rBtn1 = new RadioButton();
             rBtnP2 = new RadioButton();
@@ -935,7 +934,7 @@
             // 
             btnTirar.Anchor = AnchorStyles.Bottom;
             btnTirar.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnTirar.Location = new Point(307, 412);
+            btnTirar.Location = new Point(252, 412);
             btnTirar.Name = "btnTirar";
             btnTirar.Size = new Size(86, 27);
             btnTirar.TabIndex = 38;
@@ -943,22 +942,11 @@
             btnTirar.UseVisualStyleBackColor = true;
             btnTirar.Click += btnTirar_Click;
             // 
-            // btnSelec
-            // 
-            btnSelec.Anchor = AnchorStyles.Bottom;
-            btnSelec.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSelec.Location = new Point(208, 412);
-            btnSelec.Name = "btnSelec";
-            btnSelec.Size = new Size(86, 27);
-            btnSelec.TabIndex = 39;
-            btnSelec.Text = "Seleccionar";
-            btnSelec.UseVisualStyleBackColor = true;
-            // 
             // btnPasarTurno
             // 
             btnPasarTurno.Anchor = AnchorStyles.Bottom;
             btnPasarTurno.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnPasarTurno.Location = new Point(407, 412);
+            btnPasarTurno.Location = new Point(352, 412);
             btnPasarTurno.Name = "btnPasarTurno";
             btnPasarTurno.Size = new Size(86, 27);
             btnPasarTurno.TabIndex = 40;
@@ -1032,7 +1020,6 @@
             Controls.Add(rBtnP2);
             Controls.Add(rBtn1);
             Controls.Add(btnPasarTurno);
-            Controls.Add(btnSelec);
             Controls.Add(btnTirar);
             Controls.Add(lblPuntosP2);
             Controls.Add(lblPuntosP1);
@@ -1212,7 +1199,6 @@
         private Label lblPuntosP1;
         private Label lblPuntosP2;
         private Button btnTirar;
-        private Button btnSelec;
         private Button btnPasarTurno;
         private RadioButton rBtn1;
         private RadioButton rBtnP2;

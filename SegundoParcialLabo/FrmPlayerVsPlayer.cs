@@ -49,7 +49,7 @@ namespace SegundoParcialLabo
             Serializador.SerializarJson("JugadorDos.json", jugadorDos);
             FrmJuego frmJuego = new FrmJuego();
 
-            frmJuego.ShowDialog();
+            frmJuego.Show();
         }
     }
 }

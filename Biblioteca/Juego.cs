@@ -8,22 +8,50 @@ namespace Biblioteca
 {
     public class Juego
     {
+        private int id;
         private Jugador jugadorUno;
         private Jugador jugadorDos;
         private int puntosJugadorUno;
         private int puntosJugadorDos;
-        private string ganador;
+        private string? ganador;
+        private string? perdedor;
         public Juego(Jugador jugadorUno, Jugador jugadorDos)
         {
             this.jugadorUno = jugadorUno;
             this.jugadorDos = jugadorDos;
         }
 
+        public Juego(int id, string jugadorUno, string jugadorDos, int puntosJugaUno, int puntosJugaDos, string ganador, string perdedor, int partidasGanadas, int partidasPerdidas)
+        {
+            this.id = id;
+            this.jugadorUno = new Jugador(jugadorUno);
+            this.jugadorDos = new Jugador(jugadorDos);
+            puntosJugadorUno = puntosJugaUno;
+            puntosJugadorDos = puntosJugaDos;
+            this.ganador = ganador;
+            this.perdedor = perdedor;
+            this.jugadorUno.PartidasGanadas = partidasGanadas;
+            this.jugadorUno.PartidasPerdidas = partidasPerdidas;
+        }
+        public Juego(string jugadorUno, string jugadorDos, int puntosJugaUno, int puntosJugaDos, string ganador, string perdedor, int partidasGanadas, int partidasPerdidas)
+        {
+            this.jugadorUno = new Jugador(jugadorUno);
+            this.jugadorDos = new Jugador(jugadorDos);
+            puntosJugadorUno = puntosJugaUno;
+            puntosJugadorDos = puntosJugaDos;
+            this.ganador = ganador;
+            this.perdedor = perdedor;
+            this.jugadorUno.PartidasGanadas = partidasGanadas;
+            this.jugadorUno.PartidasPerdidas = partidasPerdidas;
+        }
+
+        public int Id { get => id; set => id = value; }
         public Jugador JugadorUno { get => jugadorUno; set => jugadorUno = value; }
         public Jugador JugadorDos { get => jugadorDos; set => jugadorDos = value; }
         public int PuntosJugadorUno { get => puntosJugadorUno; set => puntosJugadorUno = value; }
         public int PuntosJugadorDos { get => puntosJugadorDos; set => puntosJugadorDos = value; }
-
+        public string Ganador { get => ganador; set => ganador = value; }
+        public string Perdedor { get => perdedor; set => perdedor = value; }
 
         public static bool EsEscalera(int[] dados)
         {

@@ -14,7 +14,6 @@ namespace SegundoParcialLabo
     public delegate void DelegadoPanel(Form formulario);
     public partial class FrmPrincipal : Form
     {
-
         Form? formularioAbierto = null;
         public FrmPrincipal()
         {
@@ -23,24 +22,25 @@ namespace SegundoParcialLabo
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-
+ 
         }
 
         private void btnPVP_Click(object sender, EventArgs e)
         {
-            CerrarFormularioAbierto();
-            AbrirFormulario<FrmPlayerVsPlayer>();
+            Task hilo = new Task(() => { CerrarForm(formularioAbierto); AbrirFormulario<FrmPlayerVsPlayer>();});
+            hilo.Start();
         }
 
         private void btnPc_Click(object sender, EventArgs e)
         {
-            Task hilo = new Task(() => { CerrarFormularioAbierto(); AbrirFormulario<FrmPcVsPc>();});
+            Task hilo = new Task(() => { CerrarForm(formularioAbierto); AbrirFormulario<FrmPcVsPc>();});
             hilo.Start();            
         }
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            CerrarFormularioAbierto();
+            Task hilo = new Task(() => { CerrarForm(formularioAbierto); AbrirFormulario<FrmHistorial>(); });
+            hilo.Start();
         }
 
         private void pictureBEscape_Click(object sender, EventArgs e)
@@ -68,11 +68,7 @@ namespace SegundoParcialLabo
                 formulario.FormBorderStyle = FormBorderStyle.None;
                 formulario.Dock = DockStyle.Fill;
                 AbrirFormPanel(formulario);
-                //panelFormularios.Controls.Add(formulario);
                 panelFormularios.Tag = formulario;
-                //formulario.Show();
-                //formulario.BringToFront();
-
                 formularioAbierto = formulario;
             }
             else
@@ -80,8 +76,8 @@ namespace SegundoParcialLabo
                 formulario.BringToFront();
                 formularioAbierto = formulario;
             }
+            
         }
-
 
         private void AbrirFormPanel(Form formulario)
         {
@@ -99,12 +95,21 @@ namespace SegundoParcialLabo
             }
         }
 
-        private void CerrarFormularioAbierto()
+        private void CerrarForm(Form formulario)
         {
-            if (formularioAbierto != null)
+            if(InvokeRequired)
             {
-                formularioAbierto.Close();
-                formularioAbierto = null;
+                DelegadoPanel delegado = CerrarForm;
+                object[] parametros = { formulario };
+                Invoke(delegado, parametros);
+            }
+            else
+            {
+                if (formularioAbierto != null)
+                {
+                    formularioAbierto.Close();
+                    formularioAbierto = null;
+                }
             }
         }
     }

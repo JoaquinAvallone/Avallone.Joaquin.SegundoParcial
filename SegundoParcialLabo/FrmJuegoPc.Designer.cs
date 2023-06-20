@@ -525,12 +525,13 @@
             // 
             btnCancelar.Anchor = AnchorStyles.Bottom;
             btnCancelar.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(267, 416);
+            btnCancelar.Location = new Point(270, 417);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(144, 27);
             btnCancelar.TabIndex = 43;
             btnCancelar.Text = "Cancelar Partida";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // panelGeneralaP2
             // 
@@ -931,6 +932,8 @@
             Controls.Add(panel3P1);
             Controls.Add(panel2P1);
             Controls.Add(panel1P1);
+            MaximumSize = new Size(719, 494);
+            MinimumSize = new Size(719, 494);
             Name = "FrmJuegoPc";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmJuegoPc";
