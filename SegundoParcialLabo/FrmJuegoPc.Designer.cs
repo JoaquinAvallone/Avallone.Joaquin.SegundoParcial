@@ -932,6 +932,7 @@
             Controls.Add(panel3P1);
             Controls.Add(panel2P1);
             Controls.Add(panel1P1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(719, 494);
             MinimumSize = new Size(719, 494);
             Name = "FrmJuegoPc";

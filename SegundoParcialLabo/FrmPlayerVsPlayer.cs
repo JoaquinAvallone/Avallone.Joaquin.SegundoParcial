@@ -15,6 +15,7 @@ namespace SegundoParcialLabo
     {
         Usuario? usuarioActual;
         List<Jugador>? jugadores;
+        Serializador<Jugador> serializadorJuga;
         public FrmPlayerVsPlayer()
         {
             InitializeComponent();
@@ -22,8 +23,10 @@ namespace SegundoParcialLabo
 
         private void FrmPlayerVsPlayer_Load(object sender, EventArgs e)
         {
-            usuarioActual = Serializador.DeserializarUsuarioActualJson();
-            jugadores = Serializador.DeserializarJugadoresJson();
+            serializadorJuga = new Serializador<Jugador>();
+            Serializador<Usuario> serializadorUser = new Serializador<Usuario>();
+            usuarioActual = serializadorUser.DeserializarUsuarioActualJson();
+            jugadores = serializadorJuga.DeserializarJugadoresJson();
             RellenarComboB();
         }
 
@@ -45,8 +48,8 @@ namespace SegundoParcialLabo
                 MessageBox.Show("Debe elegir ambos jugadores.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Serializador.SerializarJson("JugadorUno.json", jugadorUno);
-            Serializador.SerializarJson("JugadorDos.json", jugadorDos);
+            serializadorJuga.SerializarJson("JugadorUno.json", jugadorUno);
+            serializadorJuga.SerializarJson("JugadorDos.json", jugadorDos);
             FrmJuego frmJuego = new FrmJuego();
 
             frmJuego.Show();

@@ -33,14 +33,10 @@
             btnPVP = new Button();
             btnPc = new Button();
             btnHistorial = new Button();
-            pictureBMinimize = new PictureBox();
-            pictureBEscape = new PictureBox();
             panel1 = new Panel();
             panel2 = new Panel();
             panelFormularios = new Panel();
             pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBMinimize).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBEscape).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panelFormularios.SuspendLayout();
@@ -49,10 +45,11 @@
             // 
             // lblGenerala
             // 
+            lblGenerala.Anchor = AnchorStyles.Top;
             lblGenerala.AutoSize = true;
             lblGenerala.Font = new Font("Sylfaen", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblGenerala.ForeColor = Color.WhiteSmoke;
-            lblGenerala.Location = new Point(178, 9);
+            lblGenerala.Location = new Point(166, 9);
             lblGenerala.Name = "lblGenerala";
             lblGenerala.Size = new Size(207, 46);
             lblGenerala.TabIndex = 0;
@@ -60,6 +57,7 @@
             // 
             // btnPVP
             // 
+            btnPVP.Anchor = AnchorStyles.Left;
             btnPVP.Cursor = Cursors.Hand;
             btnPVP.FlatAppearance.BorderSize = 0;
             btnPVP.FlatStyle = FlatStyle.Flat;
@@ -75,6 +73,7 @@
             // 
             // btnPc
             // 
+            btnPc.Anchor = AnchorStyles.Left;
             btnPc.Cursor = Cursors.Hand;
             btnPc.FlatAppearance.BorderSize = 0;
             btnPc.FlatStyle = FlatStyle.Flat;
@@ -90,6 +89,7 @@
             // 
             // btnHistorial
             // 
+            btnHistorial.Anchor = AnchorStyles.Left;
             btnHistorial.Cursor = Cursors.Hand;
             btnHistorial.FlatAppearance.BorderSize = 0;
             btnHistorial.FlatStyle = FlatStyle.Flat;
@@ -102,30 +102,6 @@
             btnHistorial.Text = "HISTORIAL";
             btnHistorial.UseVisualStyleBackColor = true;
             btnHistorial.Click += btnHistorial_Click;
-            // 
-            // pictureBMinimize
-            // 
-            pictureBMinimize.Cursor = Cursors.Hand;
-            pictureBMinimize.Image = (Image)resources.GetObject("pictureBMinimize.Image");
-            pictureBMinimize.Location = new Point(515, 9);
-            pictureBMinimize.Name = "pictureBMinimize";
-            pictureBMinimize.Size = new Size(17, 17);
-            pictureBMinimize.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBMinimize.TabIndex = 17;
-            pictureBMinimize.TabStop = false;
-            pictureBMinimize.Click += pictureBMinimize_Click;
-            // 
-            // pictureBEscape
-            // 
-            pictureBEscape.Cursor = Cursors.Hand;
-            pictureBEscape.Image = (Image)resources.GetObject("pictureBEscape.Image");
-            pictureBEscape.Location = new Point(538, 9);
-            pictureBEscape.Name = "pictureBEscape";
-            pictureBEscape.Size = new Size(17, 17);
-            pictureBEscape.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBEscape.TabIndex = 16;
-            pictureBEscape.TabStop = false;
-            pictureBEscape.Click += pictureBEscape_Click;
             // 
             // panel1
             // 
@@ -142,8 +118,6 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(8, 51, 24);
-            panel2.Controls.Add(pictureBMinimize);
-            panel2.Controls.Add(pictureBEscape);
             panel2.Controls.Add(lblGenerala);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(100, 0);
@@ -162,8 +136,9 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(209, 73);
+            pictureBox1.Location = new Point(207, 73);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(130, 107);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -179,14 +154,13 @@
             Controls.Add(panelFormularios);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmPrincipal";
+            FormClosing += FrmPrincipal_FormClosing;
             Load += FrmPrincipal_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBMinimize).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBEscape).EndInit();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -201,8 +175,6 @@
         private Button btnPVP;
         private Button btnPc;
         private Button btnHistorial;
-        private PictureBox pictureBMinimize;
-        private PictureBox pictureBEscape;
         private Panel panel1;
         private Panel panel2;
         private Panel panelFormularios;

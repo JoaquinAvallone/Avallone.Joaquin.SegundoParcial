@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public class Serializador
+    public class Serializador<T> : ISerializador<T> where T : class
     {
-        public static void SerializarJson<T>(string path, T obj)
+        public void SerializarJson<T>(string path, T obj)
         {
             JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions();
             jsonSerializerOptions.WriteIndented = true;
@@ -19,7 +19,7 @@ namespace Biblioteca
             File.WriteAllText(path, json);
         }
 
-        public static Usuario? DeserializarUsuarioActualJson()
+        public Usuario? DeserializarUsuarioActualJson()
         {
             if (!File.Exists("UsuarioActual.json"))
             {
@@ -35,7 +35,7 @@ namespace Biblioteca
             }
         }
 
-        public static Jugador? DeserializarJugadorUnoJson()
+        public Jugador? DeserializarJugadorUnoJson()
         {
             if (!File.Exists("JugadorUno.json"))
             {
@@ -51,7 +51,7 @@ namespace Biblioteca
             }
         }
 
-        public static Jugador? DeserializarJugadorDosJson()
+        public Jugador? DeserializarJugadorDosJson()
         {
             if (!File.Exists("JugadorDos.json"))
             {
@@ -67,7 +67,7 @@ namespace Biblioteca
             }
         }
 
-        public static List<Jugador>? DeserializarJugadoresJson()
+        public List<Jugador>? DeserializarJugadoresJson()
         {
             if (!File.Exists("Jugadores.json"))
             {

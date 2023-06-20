@@ -31,8 +31,9 @@ namespace SegundoParcialLabo
 
         private void FrmJuegoPc_Load(object sender, EventArgs e)
         {
-            jugadorUno = Serializador.DeserializarJugadorUnoJson();
-            jugadorDos = Serializador.DeserializarJugadorDosJson();
+            Serializador<Jugador> serializador = new Serializador<Jugador>();
+            jugadorUno = serializador.DeserializarJugadorUnoJson();
+            jugadorDos = serializador.DeserializarJugadorDosJson();
             tiradasJuga1 = new int[8, 5];
             tiradasJuga2 = new int[8, 5];
             partida = new Juego(jugadorUno, jugadorDos);
@@ -389,7 +390,7 @@ namespace SegundoParcialLabo
                 partida.Perdedor = jugadorDos.Nombre;
                 jugadorUno.PartidasGanadas++;
             }
-            else if(partida.PuntosJugadorUno < partida.PuntosJugadorDos)
+            else if (partida.PuntosJugadorUno < partida.PuntosJugadorDos)
             {
                 partida.Ganador = jugadorDos.Nombre;
                 partida.Perdedor = jugadorUno.Nombre;
@@ -420,7 +421,7 @@ namespace SegundoParcialLabo
 
         private void FrmJuegoPc_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(!terminoLaPartida)
+            if (!terminoLaPartida)
             {
                 DialogResult result = MessageBox.Show("¿Está seguro de abandonar el juego? Se cancelara la partida.", "Confirmar cierre", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 

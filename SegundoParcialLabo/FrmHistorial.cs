@@ -23,7 +23,8 @@ namespace SegundoParcialLabo
 
         private void FrmHistorial_Load(object sender, EventArgs e)
         {
-            jugador = Serializador.DeserializarJugadorUnoJson();
+            Serializador<Jugador> serializador = new Serializador<Jugador>();  
+            jugador = serializador.DeserializarJugadorUnoJson();
             listaPartidas = new List<Juego>();
             lblAviso.Visible = false;
             RellenarGrid();

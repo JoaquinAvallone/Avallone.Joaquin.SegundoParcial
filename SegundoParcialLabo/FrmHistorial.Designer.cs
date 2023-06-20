@@ -47,7 +47,7 @@
             // 
             // dataGVPartidas
             // 
-            dataGVPartidas.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dataGVPartidas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGVPartidas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGVPartidas.BackgroundColor = Color.FromArgb(14, 89, 41);
             dataGVPartidas.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -149,6 +149,7 @@
             // 
             // lblGandas
             // 
+            lblGandas.Anchor = AnchorStyles.Bottom;
             lblGandas.AutoSize = true;
             lblGandas.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblGandas.ForeColor = Color.WhiteSmoke;
@@ -160,6 +161,7 @@
             // 
             // lblPerdidas
             // 
+            lblPerdidas.Anchor = AnchorStyles.Bottom;
             lblPerdidas.AutoSize = true;
             lblPerdidas.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblPerdidas.ForeColor = Color.WhiteSmoke;

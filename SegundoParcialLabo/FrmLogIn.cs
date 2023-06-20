@@ -24,16 +24,18 @@ namespace SegundoParcialLabo
         {
             usuarios = UsuarioDAO.ListaUsuarios();
             jugadores = new List<Jugador>();
+            Serializador<Jugador> serializador = new Serializador<Jugador>();
 
             if (!File.Exists("Jugadores.json"))
             {
                 jugadores = Hardcode.HardcodeJugadores();
-                Serializador.SerializarJson("Jugadores.json", jugadores);
+                serializador.SerializarJson("Jugadores.json", jugadores);
             }
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            Serializador<Usuario> serializador = new Serializador<Usuario>();
             FrmPrincipal principal = new FrmPrincipal();
             bool flagIngreso = false;
 
@@ -50,7 +52,7 @@ namespace SegundoParcialLabo
             {
                 if (item.Contraseña == txtBContraseña.Text && item.NombreUsuario == txtBNombreUsuario.Text)
                 {
-                    Serializador.SerializarJson("UsuarioActual.json", item);
+                    serializador.SerializarJson("UsuarioActual.json", item);
                     this.Hide();
                     principal.ShowDialog();
                     this.Close();
@@ -83,6 +85,28 @@ namespace SegundoParcialLabo
         private void pictureBMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void picBEye_Click(object sender, EventArgs e)
+        {
+            txtBContraseña.UseSystemPasswordChar = false;
+            picBEye.Visible = false;
+            picBEyeBlind.Visible = true;
+        }
+
+        private void picBEyeBlind_Click(object sender, EventArgs e)
+        {
+            txtBContraseña.UseSystemPasswordChar = true;
+            picBEye.Visible = true;
+            picBEyeBlind.Visible = false;
+        }
+
+        private void txtBContraseña_TextChanged(object sender, EventArgs e)
+        {
+            if (Text != null)
+            {
+                picBEye.Visible = true;
+            }
         }
     }
 }

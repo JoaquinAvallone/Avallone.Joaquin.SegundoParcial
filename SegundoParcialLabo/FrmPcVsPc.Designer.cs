@@ -38,6 +38,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Sylfaen", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.WhiteSmoke;
@@ -49,6 +50,7 @@
             // 
             // btnJugar
             // 
+            btnJugar.Anchor = AnchorStyles.None;
             btnJugar.FlatAppearance.BorderSize = 0;
             btnJugar.FlatStyle = FlatStyle.Popup;
             btnJugar.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
@@ -63,6 +65,7 @@
             // 
             // comboBUno
             // 
+            comboBUno.Anchor = AnchorStyles.None;
             comboBUno.FormattingEnabled = true;
             comboBUno.Location = new Point(95, 141);
             comboBUno.Name = "comboBUno";
@@ -71,6 +74,7 @@
             // 
             // lblJugador1
             // 
+            lblJugador1.Anchor = AnchorStyles.None;
             lblJugador1.AutoSize = true;
             lblJugador1.Font = new Font("Sylfaen", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblJugador1.ForeColor = Color.WhiteSmoke;
@@ -82,6 +86,7 @@
             // 
             // lblJugador2
             // 
+            lblJugador2.Anchor = AnchorStyles.None;
             lblJugador2.AutoSize = true;
             lblJugador2.Font = new Font("Sylfaen", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblJugador2.ForeColor = Color.WhiteSmoke;
@@ -93,6 +98,7 @@
             // 
             // comboBDos
             // 
+            comboBDos.Anchor = AnchorStyles.None;
             comboBDos.FormattingEnabled = true;
             comboBDos.Location = new Point(325, 141);
             comboBDos.Name = "comboBDos";

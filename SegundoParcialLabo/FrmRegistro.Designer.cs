@@ -187,10 +187,12 @@
             txtBNombreUsuario.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtBNombreUsuario.ForeColor = SystemColors.Window;
             txtBNombreUsuario.Location = new Point(218, 57);
+            txtBNombreUsuario.MaxLength = 15;
             txtBNombreUsuario.Name = "txtBNombreUsuario";
             txtBNombreUsuario.PlaceholderText = "Nombre Usuario";
             txtBNombreUsuario.Size = new Size(181, 15);
             txtBNombreUsuario.TabIndex = 28;
+            txtBNombreUsuario.KeyPress += txtBNombreUsuario_KeyPress;
             // 
             // panelEmail
             // 

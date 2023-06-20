@@ -124,18 +124,6 @@ namespace Biblioteca
             return contador;
         }
 
-        public static void DeterminarGanador(Juego juego)
-        {
-            if(juego.puntosJugadorUno > juego.puntosJugadorDos)
-            {
-                juego.ganador = juego.jugadorUno.Nombre;
-            }
-            else
-            {
-                juego.ganador = juego.jugadorDos.Nombre;
-            }
-        }
-
         public static int[] ObtenerNumeroMasRepetido(int[] numeros, int[] excluidos)
         {
             Dictionary<int, int> recuento = new Dictionary<int, int>();

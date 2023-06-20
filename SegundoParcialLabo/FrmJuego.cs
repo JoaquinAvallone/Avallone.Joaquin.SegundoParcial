@@ -12,8 +12,10 @@ using static System.Formats.Asn1.AsnWriter;
 
 namespace SegundoParcialLabo
 {
+    public delegate void NotificarFinDelJuego();
     public partial class FrmJuego : Form
     {
+        public event NotificarFinDelJuego JuegoTerminado;
         Jugador? jugadorUno;
         Jugador? jugadorDos;
         Juego partida;
@@ -26,8 +28,9 @@ namespace SegundoParcialLabo
 
         private void FrmJuego_Load(object sender, EventArgs e)
         {
-            jugadorUno = Serializador.DeserializarJugadorUnoJson();
-            jugadorDos = Serializador.DeserializarJugadorDosJson();
+            Serializador<Jugador> serializador = new Serializador<Jugador>();
+            jugadorUno = serializador.DeserializarJugadorUnoJson();
+            jugadorDos = serializador.DeserializarJugadorDosJson();
             partida = new Juego(jugadorUno, jugadorDos);
 
             CargarImagenes();
@@ -36,6 +39,7 @@ namespace SegundoParcialLabo
             lblPlayer1.Text = jugadorUno.Nombre;
             lblPlayer2.Text = jugadorDos.Nombre;
 
+            JuegoTerminado += Ganador;
             Task.Run(() => { CheckFinPartida(); });
         }
 
@@ -43,11 +47,12 @@ namespace SegundoParcialLabo
         {
             while (checkPartida)
             {
-                Ganador();
+                JuegoTerminado.Invoke();
             }
         }
         public void CargarImagenes()
         {
+            this.Text = jugadorUno.Nombre + " vs " + jugadorDos.Nombre;
             picBDado1P1.ImageLocation = "dados/Dado1.png";
             picBDado2P1.ImageLocation = "dados/dado2.png";
             picBDado3P1.ImageLocation = "dados/dado3.png";
@@ -67,7 +72,6 @@ namespace SegundoParcialLabo
             picBoxDado3.ImageLocation = "dados/dado1.png";
             picBoxDado4.ImageLocation = "dados/dado1.png";
             picBoxDado5.ImageLocation = "dados/dado1.png";
-
         }
 
         public void RestablecerDados()
@@ -902,8 +906,8 @@ namespace SegundoParcialLabo
                 }
                 else
                 {
-                    partida.Ganador = "Empate";
-                    partida.Perdedor = "Empate";
+                    partida.Ganador = "EMPATE";
+                    partida.Perdedor = "EMPATE";
                 }
                 Juego partidaDB = new Juego(jugadorUno.Nombre, jugadorDos.Nombre, partida.PuntosJugadorUno, partida.PuntosJugadorDos, partida.Ganador, partida.Perdedor, jugadorUno.PartidasGanadas, jugadorUno.PartidasPerdidas);
                 PartidaDAO.GuardarPartida(partidaDB);

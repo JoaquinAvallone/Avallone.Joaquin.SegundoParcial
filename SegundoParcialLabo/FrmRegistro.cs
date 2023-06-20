@@ -22,12 +22,14 @@ namespace SegundoParcialLabo
 
         private void FrmRegistro_Load(object sender, EventArgs e)
         {
+            Serializador<Jugador> serializador = new Serializador<Jugador>();
             usuarios = UsuarioDAO.ListaUsuarios();
-            jugadores = Serializador.DeserializarJugadoresJson();
+            jugadores = serializador.DeserializarJugadoresJson();
         }
 
         private void btnRegistro_Click(object sender, EventArgs e)
         {
+            Serializador<Usuario> serializador = new Serializador<Usuario>();
             FrmPrincipal principal = new FrmPrincipal();
             string nombreCompleto = txtBNombreCompleto.Text;
             string nombreUsuario = txtBNombreUsuario.Text;
@@ -63,7 +65,7 @@ namespace SegundoParcialLabo
                 Usuario nuevoUsuario = new Usuario(nombreCompleto, nombreUsuario, email, contraseña);
                 UsuarioDAO.GuardarUsuario(nuevoUsuario);
                 MessageBox.Show("Se ha registrado con éxito.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Serializador.SerializarJson("UsuarioActual.json", nuevoUsuario);
+                serializador.SerializarJson("UsuarioActual.json", nuevoUsuario);
                 this.Hide();
                 principal.ShowDialog();
                 this.Close();
@@ -84,7 +86,7 @@ namespace SegundoParcialLabo
 
         private void txtBNombreCompleto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
             {
                 MessageBox.Show("Solo se acepta el ingreso de letras.");
                 e.Handled = true;
@@ -103,6 +105,15 @@ namespace SegundoParcialLabo
         private void pictureBMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void txtBNombreUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ' && !char.IsControl(e.KeyChar))
+            {
+                MessageBox.Show("No se permite el uso de espacios.");
+                e.Handled = true;
+            }
         }
     }
 }

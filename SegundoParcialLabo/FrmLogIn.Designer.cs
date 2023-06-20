@@ -42,12 +42,16 @@
             btnRegistro = new Button();
             pictureBEscape = new PictureBox();
             pictureBMinimize = new PictureBox();
+            picBEyeBlind = new PictureBox();
+            picBEye = new PictureBox();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBContra).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBUsuario).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBEscape).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBMinimize).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBEyeBlind).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBEye).BeginInit();
             SuspendLayout();
             // 
             // panelLogo
@@ -94,6 +98,7 @@
             txtBContraseña.Size = new Size(181, 15);
             txtBContraseña.TabIndex = 10;
             txtBContraseña.UseSystemPasswordChar = true;
+            txtBContraseña.TextChanged += txtBContraseña_TextChanged;
             // 
             // panelEmail
             // 
@@ -193,12 +198,40 @@
             pictureBMinimize.TabStop = false;
             pictureBMinimize.Click += pictureBMinimize_Click;
             // 
+            // picBEyeBlind
+            // 
+            picBEyeBlind.Cursor = Cursors.Hand;
+            picBEyeBlind.Image = (Image)resources.GetObject("picBEyeBlind.Image");
+            picBEyeBlind.Location = new Point(525, 106);
+            picBEyeBlind.Name = "picBEyeBlind";
+            picBEyeBlind.Size = new Size(15, 20);
+            picBEyeBlind.SizeMode = PictureBoxSizeMode.Zoom;
+            picBEyeBlind.TabIndex = 16;
+            picBEyeBlind.TabStop = false;
+            picBEyeBlind.Visible = false;
+            picBEyeBlind.Click += picBEyeBlind_Click;
+            // 
+            // picBEye
+            // 
+            picBEye.Cursor = Cursors.Hand;
+            picBEye.Image = (Image)resources.GetObject("picBEye.Image");
+            picBEye.Location = new Point(525, 106);
+            picBEye.Name = "picBEye";
+            picBEye.Size = new Size(15, 20);
+            picBEye.SizeMode = PictureBoxSizeMode.Zoom;
+            picBEye.TabIndex = 17;
+            picBEye.TabStop = false;
+            picBEye.Visible = false;
+            picBEye.Click += picBEye_Click;
+            // 
             // FrmLogIn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(20, 20, 20);
             ClientSize = new Size(585, 217);
+            Controls.Add(picBEye);
+            Controls.Add(picBEyeBlind);
             Controls.Add(pictureBMinimize);
             Controls.Add(pictureBEscape);
             Controls.Add(btnRegistro);
@@ -225,6 +258,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBUsuario).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBEscape).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBMinimize).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBEyeBlind).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBEye).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -244,5 +279,7 @@
         private Label lblGenerala;
         private PictureBox pictureBEscape;
         private PictureBox pictureBMinimize;
+        private PictureBox picBEyeBlind;
+        private PictureBox picBEye;
     }
 }

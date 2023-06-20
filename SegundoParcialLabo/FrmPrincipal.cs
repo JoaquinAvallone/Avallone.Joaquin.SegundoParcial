@@ -15,6 +15,7 @@ namespace SegundoParcialLabo
     public partial class FrmPrincipal : Form
     {
         Form? formularioAbierto = null;
+        Usuario? usuarioActual;
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -22,7 +23,11 @@ namespace SegundoParcialLabo
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-
+            Serializador<Usuario> serializador = new Serializador<Usuario>();
+            usuarioActual = serializador.DeserializarUsuarioActualJson();
+            this.Text = "La Generala - " + usuarioActual.NombreUsuario;
+            Jugador jugadorUno = new Jugador(usuarioActual.NombreUsuario);
+            serializador.SerializarJson("JugadorUno.json", jugadorUno);
         }
 
         private void btnPVP_Click(object sender, EventArgs e)
@@ -43,24 +48,10 @@ namespace SegundoParcialLabo
             hilo.Start();
         }
 
-        private void pictureBEscape_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Desea abandonar la aplicacion?", "La Generala", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void pictureBMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         private void AbrirFormulario<MiForm>() where MiForm : Form, new()
         {
             Form? formulario;
-            formulario = panelFormularios.Controls.OfType<MiForm>().FirstOrDefault(); // busca en la coleccion el formulario
+            formulario = panelFormularios.Controls.OfType<MiForm>().FirstOrDefault();
             if (formulario == null)
             {
                 formulario = new MiForm();
@@ -110,6 +101,16 @@ namespace SegundoParcialLabo
                     formularioAbierto.Close();
                     formularioAbierto = null;
                 }
+            }
+        }
+
+        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Desea abandonar la aplicacion?", "La Generala", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
             }
         }
     }
