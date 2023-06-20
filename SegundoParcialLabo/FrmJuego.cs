@@ -13,6 +13,7 @@ using static System.Formats.Asn1.AsnWriter;
 namespace SegundoParcialLabo
 {
     public delegate void NotificarFinDelJuego();
+    public delegate void DelegadoDeshabilitarBotones();
     public partial class FrmJuego : Form
     {
         public event NotificarFinDelJuego JuegoTerminado;
@@ -49,8 +50,6 @@ namespace SegundoParcialLabo
             {
                 JuegoTerminado.Invoke();
             }
-            btnTirar.Enabled = false;
-            btnPasarTurno.Enabled = false;
         }
         public void CargarImagenes()
         {
@@ -928,10 +927,26 @@ namespace SegundoParcialLabo
                 }
                 Juego partidaDB = new Juego(jugadorUno.Nombre, jugadorDos.Nombre, partida.PuntosJugadorUno, partida.PuntosJugadorDos, partida.Ganador, partida.Perdedor, jugadorUno.PartidasGanadas, jugadorUno.PartidasPerdidas);
                 PartidaDAO.GuardarPartida(partidaDB);
+                DeshabilitarBotones();
                 FrmGanador frmGanador = new FrmGanador(partida);
                 frmGanador.ShowDialog();
             }
 
+        }
+
+        public void DeshabilitarBotones()
+        {
+            if(InvokeRequired)
+            {
+                DelegadoDeshabilitarBotones delegado = DeshabilitarBotones;
+                Invoke(delegado);
+            }
+            else
+            {
+
+                btnTirar.Enabled = false;
+                btnPasarTurno.Enabled = false;
+            }
         }
 
         private void FrmJuego_FormClosing(object sender, FormClosingEventArgs e)
