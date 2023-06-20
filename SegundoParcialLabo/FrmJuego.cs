@@ -49,6 +49,8 @@ namespace SegundoParcialLabo
             {
                 JuegoTerminado.Invoke();
             }
+            btnTirar.Enabled = false;
+            btnPasarTurno.Enabled = false;
         }
         public void CargarImagenes()
         {
@@ -515,61 +517,76 @@ namespace SegundoParcialLabo
         }
         private void picBoxDado1_Click(object sender, EventArgs e)
         {
-            if (picBoxDado1.BackColor == Color.FromArgb(14, 89, 41))
+            if (!(lblTiradas.Text == "Tirada 0/3"))
             {
-                picBoxDado1.BackColor = Color.FromArgb(10, 64, 30);
-            }
-            else
-            {
-                picBoxDado1.BackColor = Color.FromArgb(14, 89, 41);
+                if (picBoxDado1.BackColor == Color.FromArgb(14, 89, 41))
+                {
+                    picBoxDado1.BackColor = Color.FromArgb(10, 64, 30);
+                }
+                else
+                {
+                    picBoxDado1.BackColor = Color.FromArgb(14, 89, 41);
+                }
             }
         }
 
         private void picBoxDado2_Click(object sender, EventArgs e)
         {
-            if (picBoxDado2.BackColor == Color.FromArgb(14, 89, 41))
+            if (!(lblTiradas.Text == "Tirada 0/3"))
             {
-                picBoxDado2.BackColor = Color.FromArgb(10, 64, 30);
-            }
-            else
-            {
-                picBoxDado2.BackColor = Color.FromArgb(14, 89, 41);
+                if (picBoxDado2.BackColor == Color.FromArgb(14, 89, 41))
+                {
+                    picBoxDado2.BackColor = Color.FromArgb(10, 64, 30);
+                }
+                else
+                {
+                    picBoxDado2.BackColor = Color.FromArgb(14, 89, 41);
+                }
             }
         }
 
         private void picBoxDado3_Click(object sender, EventArgs e)
         {
-            if (picBoxDado3.BackColor == Color.FromArgb(14, 89, 41))
+            if (!(lblTiradas.Text == "Tirada 0/3"))
             {
-                picBoxDado3.BackColor = Color.FromArgb(10, 64, 30);
-            }
-            else
-            {
-                picBoxDado3.BackColor = Color.FromArgb(14, 89, 41);
+                if (picBoxDado3.BackColor == Color.FromArgb(14, 89, 41))
+                {
+                    picBoxDado3.BackColor = Color.FromArgb(10, 64, 30);
+                }
+                else
+                {
+                    picBoxDado3.BackColor = Color.FromArgb(14, 89, 41);
+                }
             }
         }
 
         private void picBoxDado4_Click(object sender, EventArgs e)
         {
-            if (picBoxDado4.BackColor == Color.FromArgb(14, 89, 41))
+            if (!(lblTiradas.Text == "Tirada 0/3"))
             {
-                picBoxDado4.BackColor = Color.FromArgb(10, 64, 30);
-            }
-            else
-            {
-                picBoxDado4.BackColor = Color.FromArgb(14, 89, 41);
+                if (picBoxDado4.BackColor == Color.FromArgb(14, 89, 41))
+                {
+                    picBoxDado4.BackColor = Color.FromArgb(10, 64, 30);
+                }
+                else
+                {
+                    picBoxDado4.BackColor = Color.FromArgb(14, 89, 41);
+                }
             }
         }
 
         private void picBoxDado5_Click(object sender, EventArgs e)
         {
-            if (picBoxDado5.BackColor == Color.FromArgb(14, 89, 41))
+            if (!(lblTiradas.Text == "Tirada 0/3"))
             {
-                picBoxDado5.BackColor = Color.FromArgb(10, 64, 30);
-            }
-            else
-            {
-                picBoxDado5.BackColor = Color.FromArgb(14, 89, 41);
+                if (picBoxDado5.BackColor == Color.FromArgb(14, 89, 41))
+                {
+                    picBoxDado5.BackColor = Color.FromArgb(10, 64, 30);
+                }
+                else
+                {
+                    picBoxDado5.BackColor = Color.FromArgb(14, 89, 41);
+                }
             }
         }
 

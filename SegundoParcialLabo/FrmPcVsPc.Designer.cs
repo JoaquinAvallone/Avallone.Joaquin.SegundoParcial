@@ -66,6 +66,7 @@
             // comboBUno
             // 
             comboBUno.Anchor = AnchorStyles.None;
+            comboBUno.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBUno.FormattingEnabled = true;
             comboBUno.Location = new Point(95, 141);
             comboBUno.Name = "comboBUno";
@@ -99,6 +100,7 @@
             // comboBDos
             // 
             comboBDos.Anchor = AnchorStyles.None;
+            comboBDos.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBDos.FormattingEnabled = true;
             comboBDos.Location = new Point(325, 141);
             comboBDos.Name = "comboBDos";

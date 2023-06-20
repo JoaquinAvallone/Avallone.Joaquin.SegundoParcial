@@ -113,6 +113,7 @@
             txtBConfirmaContra.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtBConfirmaContra.ForeColor = SystemColors.Window;
             txtBConfirmaContra.Location = new Point(218, 175);
+            txtBConfirmaContra.MaxLength = 49;
             txtBConfirmaContra.Name = "txtBConfirmaContra";
             txtBConfirmaContra.PlaceholderText = "Confirmar Contraseña";
             txtBConfirmaContra.Size = new Size(181, 15);
@@ -147,6 +148,7 @@
             txtBContraseña.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtBContraseña.ForeColor = SystemColors.Window;
             txtBContraseña.Location = new Point(218, 135);
+            txtBContraseña.MaxLength = 49;
             txtBContraseña.Name = "txtBContraseña";
             txtBContraseña.PlaceholderText = "Contraseña";
             txtBContraseña.Size = new Size(181, 15);
@@ -167,6 +169,7 @@
             txtBEmail.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtBEmail.ForeColor = SystemColors.Window;
             txtBEmail.Location = new Point(218, 97);
+            txtBEmail.MaxLength = 49;
             txtBEmail.Name = "txtBEmail";
             txtBEmail.PlaceholderText = "Email";
             txtBEmail.Size = new Size(181, 15);
@@ -209,6 +212,7 @@
             txtBNombreCompleto.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtBNombreCompleto.ForeColor = SystemColors.Window;
             txtBNombreCompleto.Location = new Point(218, 19);
+            txtBNombreCompleto.MaxLength = 49;
             txtBNombreCompleto.Name = "txtBNombreCompleto";
             txtBNombreCompleto.PlaceholderText = "Nombre Completo";
             txtBNombreCompleto.Size = new Size(181, 15);
