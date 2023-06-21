@@ -51,22 +51,22 @@ y asignara los puntos correspondientes a ese numero. Cuando termine de analizar 
  tirando solo los dados no seleccionados en su siguiente tiro. Una vez que el jugador se queda sin tiros tendra la libertad de elegir a que juego o numero asignarle los puntos. Una vez que ambos jugadores se quedan sin juegos o numeros a los
 cuales asignarle puntos, el juego terminara abriendose un formulario que anuncie al ganador.
 
-##Juego LogIn
+## Juego
 Con lo primero que nos encontraremos al abrir la app sera con el LogIn, en donde en caso de estar registrado podras pon3er tu nombre de usuario y contraseña y acceder a la pantalla principal de La Generala.
 
 
-[![Captura-de-pantalla-2023-06-20-215111.png](https://i.postimg.cc/DzBpCtN6/Captura-de-pantalla-2023-06-20-215111.png)](https://postimg.cc/LqgV502g)
+![image](https://github.com/JoaquinAvallone/Avallone.Joaquin.SegundoParcial/assets/108807458/b5e5df93-1351-4fcc-8923-8ccd2d8d1819)
 
 De ser un usuario nuevo tendras que clickear el boton de registrarse en el cual tendras que rellenar todos tus datos, una vez hecho esto te llevara directamente a la pantalla principal.
 Una vez te registres tus datos se guardaran en la base de datos de SQL permitiendo al usuario volver a ingresar a la app cuando quiera sin perder sus registros.
 
 
-[![Captura-de-pantalla-2023-06-20-215121.png](https://i.postimg.cc/KckFMNKw/Captura-de-pantalla-2023-06-20-215121.png)](https://postimg.cc/jCbGVy44)
+![image](https://github.com/JoaquinAvallone/Avallone.Joaquin.SegundoParcial/assets/108807458/539ee5c0-ef38-442b-98c2-ece80130f262)
 
 Una vez nos encontremos en la pantalla principal nos encontraremos con dos modos de juego distintos y el historial de nuestras partidas:
 
 
-[![Captura-de-pantalla-2023-06-20-215207.png](https://i.postimg.cc/SKkNLM08/Captura-de-pantalla-2023-06-20-215207.png)](https://postimg.cc/RWpB4qZV)
+![image](https://github.com/JoaquinAvallone/Avallone.Joaquin.SegundoParcial/assets/108807458/f00c8f95-2da9-49de-9a92-406599f30cef)
 
 Aca podras creear tu partida de Player Vs Player donde el jugador uno sera el usuario que ingreso a la app y el jugador dos podra seleccionar entre los distintos jugadores genericos de la app.
 
@@ -77,7 +77,7 @@ Una vez creada la partida se abrira el juego. El primer turno es del usuario en 
 otorgarle los puntos.
 
 
-[![Captura-de-pantalla-2023-06-20-215312.png](https://i.postimg.cc/kGKgFF5Q/Captura-de-pantalla-2023-06-20-215312.png)](https://postimg.cc/30rh3GmN)
+![image](https://github.com/JoaquinAvallone/Avallone.Joaquin.SegundoParcial/assets/108807458/3be06ee7-549f-493b-b1d9-cb5918e835dd)
 
 [![Captura-de-pantalla-2023-06-20-215343.png](https://i.postimg.cc/ZR6Gwfr5/Captura-de-pantalla-2023-06-20-215343.png)](https://postimg.cc/5YNK0S7h)
 
